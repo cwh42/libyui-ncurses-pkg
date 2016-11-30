@@ -55,6 +55,8 @@
 #include <zypp/ResPoolProxy.h>
 #include <zypp/PoolQuery.h>
 
+#define YUILogComponent "ncurses-pkg"
+#include <YUILog.h>
 
 using zypp::ui::S_Protected;
 using zypp::ui::S_Taboo;
@@ -150,6 +152,7 @@ template<typename T> bool bsearch( const std::vector<T> & sorted_vector, T searc
 
 inline bool sortByName( ZyppSel ptr1, ZyppSel ptr2 )
 {
-    return( ptr1->name() < ptr2->name() );
+    yuiMilestone() << "sortByName" << std::endl;
+    return( strcasecmp( ptr1->name().c_str(), ptr2->name().c_str() ) < 0 );
 }
 #endif // NCZypp_h

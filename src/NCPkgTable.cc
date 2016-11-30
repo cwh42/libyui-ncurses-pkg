@@ -1166,7 +1166,7 @@ bool NCPkgTable::fillSummaryList( NCPkgTable::NCPkgTableListType type )
     // get the package list and sort it
     std::list<ZyppSel> pkgList( zyppPkgBegin (), zyppPkgEnd () );
     pkgList.sort( sortByName );
-
+    yuiMilestone() << "sortByName should just have been called" << std::endl;
     // fill the package table
     std::list<ZyppSel>::iterator listIt;
     ZyppPkg pkgPtr;
